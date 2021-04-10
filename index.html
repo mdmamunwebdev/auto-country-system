@@ -26,7 +26,7 @@
       // excludeCountries: ["us"],
       // formatOnDisplay: false,
        geoIpLookup: function(callback) {
-         $.get("ipinfo.io/[IP address]?token=011b38e90148d1", function() {}, "jsonp").always(function(resp) {
+         $.get("https://ipinfo.io/[IP address]?token=011b38e90148d1", function() {}, "jsonp").always(function(resp) {
           var countryCode = (resp && resp.country) ? resp.country : "";
            callback(countryCode);
         });
