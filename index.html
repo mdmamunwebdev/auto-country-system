@@ -25,7 +25,7 @@
       // dropdownContainer: document.body,
       // excludeCountries: ["us"],
       // formatOnDisplay: false,
-       geoIpLookup: function(callback) {
+       geoIpLookup: function(autocountry) {
         // $.get("https://ipinfo.io/?token=011b38e90148d1", function() {}, "jsonp").always(function(resp) {
         //  var countryCode = (resp && resp.country) ? resp.country : "";
         //   callback(countryCode);
@@ -33,12 +33,12 @@
 
         
        fetch("https://ipinfo.io/?token=011b38e90148d1")
-        .then(function(response) {
-            if (!response.ok) return callback("");
-            return response.json();
+        .then(function(mamun) {
+            if (!mamun.ok) return autocountry("");
+            return mamun.json();
         })
-        .then(function(ipdata) {
-            callback(ipdata.country);
+        .then(function(country_data) {
+            autocountry(country_data.country);
         });
 
 
@@ -58,7 +58,7 @@
     });
   </script>
 
-<script>
+<!-- <script>
     
     var request = new XMLHttpRequest();
     request.open('GET', 'https://ipinfo.io/?token=011b38e90148d1');
@@ -68,15 +68,11 @@
 
         console.log(this.responseText);    
         
-       var a = this.responseText;
-       
-       console.log(a.country);
-    }
     };
     request.send();
 
 
-</script>
+</script> -->
 
 </body>
 
