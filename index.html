@@ -35,6 +35,7 @@
 
       geoIpLookup: function (callback) {
         $.get("https://ipinfo.io/?token=011b38e90148d1", function() {}, "json").always(function(resp) {
+          
          var countryCode = (resp && resp.country) ? resp.country : "";
           callback(countryCode);
         });
