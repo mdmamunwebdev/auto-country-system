@@ -32,13 +32,13 @@
        // });
 
         
-       fetch("https://api.ipdata.co/?api-key=b5f1894e0e737c41105258f9d11f0de1d4a154b0e0feba48b4b6fe1e")
+       fetch("https://ipinfo.io/?token=011b38e90148d1")
         .then(function(response) {
-            if (!response.ok) return success("");
+            if (!response.ok) return callback("");
             return response.json();
         })
         .then(function(ipdata) {
-            success(ipdata.country_code);
+            callback(ipdata.country);
         });
 
 
